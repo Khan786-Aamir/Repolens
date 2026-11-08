@@ -1,0 +1,27 @@
+[
+  { "q": "How does the backend start the server and connect to the database?", "type": "single",
+    "expected": ["backend/server.js::startServer", "backend/server.js::connectDB"] },
+  { "q": "How is a user's prompt cleaned before it is sent to the AI?", "type": "single",
+    "expected": ["backend/src/controllers/aiController.js::sanitizePrompt"] },
+  { "q": "How does the app detect spam messages sent to the AI?", "type": "single",
+    "expected": ["backend/src/controllers/aiController.js::detectSpam"] },
+  { "q": "How are errors handled globally in the backend API?", "type": "single",
+    "expected": ["backend/src/middlewares/error.js::errorHandler"] },
+  { "q": "How does the backend restrict routes based on user role?", "type": "single",
+    "expected": ["backend/src/middlewares/roleMiddleware.js::roleMiddleware"] },
+  { "q": "How does the app stop an AI request from hanging forever?", "type": "single",
+    "expected": ["backend/src/services/geminiService.js::runWithTimeout"] },
+  { "q": "How is the chat history shortened to fit the token limit?", "type": "single",
+    "expected": ["backend/src/services/geminiService.js::trimConversationHistory", "backend/src/services/geminiService.js::estimateTokens"] },
+  { "q": "How does an admin verify an expert?", "type": "single",
+    "expected": ["frontend/src/admin/pages/AdminExperts.jsx::handleVerify"] },
+  { "q": "How does an admin moderate community content?", "type": "single",
+    "expected": ["frontend/src/admin/pages/AdminCommunity.jsx::handleModeration"] },
+
+  { "q": "What does the admin layout render?", "type": "multi",
+    "expected": ["frontend/src/admin/layout/AdminLayout.jsx::AdminLayout", "frontend/src/admin/layout/Sidebar.jsx::Sidebar", "frontend/src/admin/layout/Topbar.jsx::Topbar"] },
+  { "q": "If I change categorizeError, what is affected?", "type": "multi",
+    "expected": ["backend/src/services/geminiService.js::categorizeError", "backend/src/services/geminiService.js::generateResponse"] },
+  { "q": "What does startServer call?", "type": "multi",
+    "expected": ["backend/server.js::startServer", "backend/server.js::connectDB"] }
+]
